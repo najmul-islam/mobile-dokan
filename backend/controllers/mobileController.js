@@ -8,6 +8,17 @@ const getAllMobile = asyncHandler(async (req, res) => {
 });
 
 // get single mobile
+const getSingleMobile = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const mobile = await Mobile.findOne({ _id: id });
+
+  if (!mobile) {
+    res.status(400);
+    throw new Error(`No mobile with id ${id}`);
+  }
+
+  res.status(200).json(mobile);
+});
 
 // create Mobile
 const createMobile = asyncHandler(async (req, res) => {
@@ -22,7 +33,39 @@ const createMobile = asyncHandler(async (req, res) => {
   res.status(200).json(newMobile);
 });
 
+// update mobile
+const updateMobile = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const mobile = await Mobile.findByIdAndUpdate({ _id: id }, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!mobile) {
+    res.status(400);
+    throw new Error(`No mobile with id ${id}`);
+  }
+
+  res.status(200).json(mobile);
+});
+
+// delete mobile
+const deleteMobile = asyncHandler(async (req, res) => {
+  const mobile = await Mobile.findById(req.params.id);
+
+  if (!mobile) {
+    res.status(400);
+    throw new Error(`No mobile with id ${req.params.id}`);
+  }
+
+  await mobile.remove();
+  res.status(200).json({ id: req.params.id });
+});
+
 module.exports = {
   getAllMobile,
+  getSingleMobile,
   createMobile,
+  updateMobile,
+  deleteMobile,
 };
