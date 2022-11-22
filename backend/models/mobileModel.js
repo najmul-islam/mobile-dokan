@@ -11,6 +11,7 @@ const mobileSchema = mongoose.Schema(
     model: {
       type: String,
     },
+    image: { type: String },
     price: [
       {
         type: String,

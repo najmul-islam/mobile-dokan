@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
+const fileUpload = require("express-fileupload");
 
 const connectDB = require("./config/db");
 const errorHandler = require("./middlewares/errorMiddleware");
@@ -9,11 +10,13 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("./public"));
+app.use(fileUpload());
 
 // routes
 app.use("/api/mobile", require("./routes/mobileRoutes"));
+
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
