@@ -9,9 +9,9 @@ const {
   deleteMobile,
 } = require("../controllers/mobileController");
 
-const imageUplaod = require("../middlewares/imageUploadMiddleware");
+const mobileImg = require("../middlewares/mobileImgMiddleware");
 
-router.route("/").get(getAllMobile).post(imageUplaod, createMobile);
+router.route("/").get(getAllMobile).post(mobileImg, createMobile);
 router
   .route("/:id")
   .get(getSingleMobile)

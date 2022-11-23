@@ -15,7 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
 
 // routes
-app.use("/api/mobile", require("./routes/mobileRoutes"));
+app.use("/api/mobiles", require("./routes/mobileRoute"));
+app.use("/api/brands", require("./routes/brandRoute"));
 
 app.get("/", (req, res) => {
   res.send("Hello world");
