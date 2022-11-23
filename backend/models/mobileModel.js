@@ -6,7 +6,9 @@ const mobileSchema = mongoose.Schema(
       type: String,
     },
     brand: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "Brand",
     },
     model: {
       type: String,
