@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
 const fileUpload = require("express-fileupload");
@@ -9,10 +10,10 @@ const errorHandler = require("./middlewares/errorMiddleware");
 const app = express();
 
 app.use(cors());
-app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
+app.use(express.static(path.join(__dirname, "public")));
 
 // routes
 app.use("/api/mobiles", require("./routes/mobileRoute"));

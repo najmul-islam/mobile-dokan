@@ -16,7 +16,7 @@ const MainNavbar = () => {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/all-brands">
+            <Nav.Link as={Link} to="/brands">
               Brands
             </Nav.Link>
             <Nav.Link as={Link} to="/blog">
