@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const path = require("path");
 
-const logoImg = asyncHandler(async (req, res, next) => {
+const brandsImg = asyncHandler(async (req, res, next) => {
   const { name } = req.body;
   const image = req.files.logo;
 
@@ -40,7 +40,7 @@ const logoImg = asyncHandler(async (req, res, next) => {
     extension;
 
   // file path
-  const imgPath = path.join(__dirname, "../public", "logos", imgName);
+  const imgPath = path.join(__dirname, "../public", "brands", imgName);
 
   await image.mv(imgPath);
 
@@ -48,4 +48,4 @@ const logoImg = asyncHandler(async (req, res, next) => {
 
   next();
 });
-module.exports = logoImg;
+module.exports = brandsImg;

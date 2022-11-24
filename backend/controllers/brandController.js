@@ -1,4 +1,6 @@
 const asyncHandler = require("express-async-handler");
+const fs = require("fs");
+const path = require("path");
 const Brand = require("../models/brandModel");
 
 // get all brands
@@ -58,11 +60,18 @@ const updateBrnad = asyncHandler(async (req, res) => {
 // delete mobile
 const deleteBrand = asyncHandler(async (req, res) => {
   const brand = await Brand.findById(req.params.id);
+
   if (!brand) {
     res.status(400);
     throw new Error(`No brand with id ${req.params.id}`);
   }
+
+  const filePath = path.join(__dirname, `../public/brands/${brand.logo}`);
+
+  fs.unlink(filePath, (err) => console.log(err));
+
   await brand.remove();
+
   res.status(200).json({ id: req.params.id });
 });
 

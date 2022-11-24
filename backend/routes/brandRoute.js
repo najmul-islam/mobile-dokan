@@ -9,9 +9,9 @@ const {
   deleteBrand,
 } = require("../controllers/brandController");
 
-const logoImg = require("../middlewares/logoImgMiddleware");
+const brandsImg = require("../middlewares/brandImgMiddleware");
 
-router.route("/").get(getAllBrand).post(logoImg, createBrnad);
+router.route("/").get(getAllBrand).post(brandsImg, createBrnad);
 router.route("/:id").get(getSingleBrand).put(updateBrnad).delete(deleteBrand);
 
 module.exports = router;

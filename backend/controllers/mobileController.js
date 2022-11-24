@@ -1,4 +1,6 @@
 const asyncHandler = require("express-async-handler");
+const fs = require("fs");
+const path = require("path");
 const Mobile = require("../models/mobileModel");
 
 // get all Mobile
@@ -76,7 +78,8 @@ const deleteMobile = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error(`No mobile with id ${req.params.id}`);
   }
-
+  const filePath = path.join(__dirname, `../public/mobiles/${mobile.image}`);
+  fs.unlink(filePath, (err) => console.log(err));
   await mobile.remove();
   res.status(200).json({ id: req.params.id });
 });
