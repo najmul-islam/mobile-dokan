@@ -1,7 +1,12 @@
 import React from "react";
+import CommingSoon from "../components/commingsoon/CommingSoon";
 
 const BlogPage = () => {
-  return <div>BlogPage</div>;
+  return (
+    <div>
+      <CommingSoon />
+    </div>
+  );
 };
 
 export default BlogPage;

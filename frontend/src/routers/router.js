@@ -9,6 +9,10 @@ import Brands from "./BrandsRoute";
 import SingleBrand from "./SingleBrandRoute";
 import Blog from "./BlogRoute";
 
+// static page
+import Disclaimer from "./DisclaimerRoute";
+import NotFound from "./NotFoundRoute";
+
 const Router = () => {
   return (
     <Routes>
@@ -17,7 +21,10 @@ const Router = () => {
         <Route path="/brands" element={<Brands />} />
         <Route path="/brands/:name" element={<SingleBrand />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
