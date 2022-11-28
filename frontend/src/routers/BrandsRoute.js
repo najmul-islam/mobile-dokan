@@ -1,12 +1,11 @@
-import React, { lazy, Suspense } from "react";
-import Loading from "../components/loading/Loading";
-const Brands = lazy(() => import("../pages/BrandsPage"));
+import React from "react";
+import Brands from "../components/brands/Brands";
 
 const BrandsRoute = () => {
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <Brands />
-    </Suspense>
+    </>
   );
 };
 

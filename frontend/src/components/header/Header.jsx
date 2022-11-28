@@ -1,14 +1,15 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import MainNavbar from "../navbar/MainNavbar";
-import BrandBadge from "../brands/BrandBadge";
-import BreadCrumbs from "../breadcrumbs/BreadCrumbs";
+import NavBar from "./NavBar";
+import NavBrands from "./NavBrands";
+import BreadCrumbs from "./BreadCrumbs";
+
 const Header = () => {
   return (
     <>
-      <MainNavbar />
-      <BrandBadge />
-      <BreadCrumbs />
+      <NavBar />
+      <NavBrands />
+      {/* <BreadCrumbs /> */}
     </>
   );
 };

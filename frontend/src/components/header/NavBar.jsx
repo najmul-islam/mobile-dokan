@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import Search from "../search/Search";
 
-const MainNavbar = () => {
+const NavBar = () => {
   return (
     <Navbar bg="light" expand="md">
       <Container>
@@ -30,4 +30,4 @@ const MainNavbar = () => {
   );
 };
 
-export default MainNavbar;
+export default NavBar;

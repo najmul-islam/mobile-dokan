@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useGetAllBrandQuery } from "../../redux/api/brandApi";
 import { Badge, Container, Nav, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import BrandBadgeSkeleton from "./BrandBadgeSkeleton";
+import NavBrandsSkeleton from "./NavBrandsSkeleton";
 
-const BrandBadge = () => {
+const NavBrands = () => {
   const { data, isLoading, isError } = useGetAllBrandQuery();
   const [windowWidth, setWindowWidth] = useState(0);
   const [brandNum, setBrandNum] = useState(15);
@@ -19,8 +19,8 @@ const BrandBadge = () => {
   // }
   // console.log(windowWidth);
 
-  if (isLoading) return <BrandBadgeSkeleton />;
-  if (isError) return <BrandBadgeSkeleton />;
+  if (isLoading) return <NavBrandsSkeleton />;
+  if (isError) return <NavBrandsSkeleton />;
   return (
     <Container>
       <Nav className="border-bottom">
@@ -42,4 +42,4 @@ const BrandBadge = () => {
   );
 };
 
-export default BrandBadge;
+export default NavBrands;

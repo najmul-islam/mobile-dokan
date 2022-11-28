@@ -41,7 +41,6 @@ const Disclaimer = () => {
       </Row>
       <Row className="py-3">
         <Col>
-          {" "}
           <h2>Rating & Reviews</h2>
           <p>
             The ratings and reviews of individual products are subjected to the
@@ -63,7 +62,6 @@ const Disclaimer = () => {
       </Row>
       <Row className="py-3">
         <Col>
-          {" "}
           <h2>Brand Information & Blog Posts</h2>
           <p>
             The historical information on individual brand pages, news on blog
@@ -90,7 +88,6 @@ const Disclaimer = () => {
       </Row>
       <Row className="py-3">
         <Col>
-          {" "}
           <h2>Fair Information Policy</h2>
           <p>
             As a part of our fair information policy, any brand or business can
