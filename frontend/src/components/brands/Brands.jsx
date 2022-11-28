@@ -7,19 +7,8 @@ import BrandSkeleton from "./BrandSkeleton";
 
 const Brands = () => {
   const { data, isLoading, isError } = useGetAllBrandQuery();
-  const alldata = useGetAllBrandQuery();
-
   const skeletonNum = 18;
-  // if (isError)
-  //   return (
-  //     <Container>
-  //       <Row xs={3} md={4} lg={6} xl={10}>
-  //         {new Array(skeletonNum).fill(null).map((item, i) => (
-  //           <BrandSkeleton key={i} />
-  //         ))}
-  //       </Row>
-  //     </Container>
-  //   );
+
   return (
     <Container>
       <Row className="pt-5">
@@ -30,7 +19,13 @@ const Brands = () => {
         </Col>
       </Row>
       <Devider />
-      {isLoading === true ? (
+      {isLoading ? (
+        <Row xs={3} md={4} lg={6} xl={10}>
+          {new Array(skeletonNum).fill(null).map((item, i) => (
+            <BrandSkeleton key={i} />
+          ))}
+        </Row>
+      ) : isError ? (
         <Row xs={3} md={4} lg={6} xl={10}>
           {new Array(skeletonNum).fill(null).map((item, i) => (
             <BrandSkeleton key={i} />
