@@ -5,6 +5,12 @@ const brandSchema = mongoose.Schema(
     name: {
       type: String,
     },
+    rank: {
+      type: Number,
+    },
+    slug: {
+      type: String,
+    },
     logo: {
       type: String,
     },

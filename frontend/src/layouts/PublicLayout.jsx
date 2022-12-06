@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
@@ -9,9 +10,9 @@ const PublicLayout = () => {
       <header>
         <Header />
       </header>
-      <main>
+      <Container className="min-vh-100">
         <Outlet />
-      </main>
+      </Container>
       <footer>
         <Footer />
       </footer>

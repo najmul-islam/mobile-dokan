@@ -10,15 +10,17 @@ const mobileSchema = mongoose.Schema(
       required: true,
       ref: "Brand",
     },
+    slug: {
+      type: String,
+    },
     model: {
       type: String,
     },
     image: { type: String },
-    price: [
-      {
-        type: String,
-      },
-    ],
+    price: {
+      type: String,
+    },
+
     first_release: {
       type: String,
     },
@@ -154,11 +156,9 @@ const mobileSchema = mongoose.Schema(
     sensors: {
       type: String,
     },
-    other_features: [
-      {
-        type: String,
-      },
-    ],
+    other_features: {
+      type: String,
+    },
     manufactured_by: {
       type: String,
     },

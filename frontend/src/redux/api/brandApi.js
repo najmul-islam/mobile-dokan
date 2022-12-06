@@ -15,12 +15,23 @@ export const brandApi = createApi({
     }),
 
     getSingleBrand: builder.query({
-      query: (id) => ({
-        url: `brands/${id}`,
+      query: (brandslug) => ({
+        url: `brands/${brandslug}`,
         method: "GET",
       }),
     }),
+
+    // getBrandMobiles: builder.query({
+    //   query: (brandslug) => ({
+    //     url: `brands/${brandslug}`,
+    //     method: "GET",
+    //   }),
+    // }),
   }),
 });
 
-export const { useGetAllBrandQuery, useGetSingleBrandQuery } = brandApi;
+export const {
+  useGetAllBrandQuery,
+  useGetSingleBrandQuery,
+  // useGetBrandMobilesQuery,
+} = brandApi;

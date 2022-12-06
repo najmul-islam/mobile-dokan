@@ -7,15 +7,16 @@ const {
   createMobile,
   updateMobile,
   deleteMobile,
+  getSingleMobileById,
 } = require("../controllers/mobileController");
 
 const mobileImg = require("../middlewares/mobileImgMiddleware");
 
 router.route("/").get(getAllMobile).post(mobileImg, createMobile);
 router
-  .route("/:id")
+  .route("/:mobileslug")
   .get(getSingleMobile)
   .put(updateMobile)
   .delete(deleteMobile);
-
+// router.route("/:id", getSingleMobileById);
 module.exports = router;

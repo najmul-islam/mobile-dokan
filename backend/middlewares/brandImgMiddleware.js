@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler");
+const slugify = require("slugify");
 const path = require("path");
 
 const brandsImg = asyncHandler(async (req, res, next) => {
@@ -29,15 +30,9 @@ const brandsImg = asyncHandler(async (req, res, next) => {
   }
 
   // change name
-  let imgName;
-  imgName =
-    name
-      .toLowerCase()
-      .split(/[ .:;?!~,_`"&|()<>{}\[\]\r\n/\\]+/)
-      .join("-") +
-    "-" +
-    Date.now() +
-    extension;
+  slugify.extend({ "+": " plus " });
+
+  const imgName = slugify(name, { lower: true }) + "-" + Date.now() + extension;
 
   // file path
   const imgPath = path.join(__dirname, "../public", "brands", imgName);

@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   getAllBrand,
   getSingleBrand,
+  getBrandMobiles,
   createBrnad,
   updateBrnad,
   deleteBrand,
@@ -12,6 +13,11 @@ const {
 const brandsImg = require("../middlewares/brandImgMiddleware");
 
 router.route("/").get(getAllBrand).post(brandsImg, createBrnad);
-router.route("/:id").get(getSingleBrand).put(updateBrnad).delete(deleteBrand);
+router
+  .route("/:brandslug")
+  .get(getSingleBrand)
+  .put(updateBrnad)
+  .delete(deleteBrand);
+// router.route("/:brandslug/:brandmobiles").get(getBrandMobiles);
 
 module.exports = router;

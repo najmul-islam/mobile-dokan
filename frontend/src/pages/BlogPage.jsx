@@ -3,9 +3,9 @@ import CommingSoon from "../components/commingsoon/CommingSoon";
 
 const BlogPage = () => {
   return (
-    <div>
+    <>
       <CommingSoon />
-    </div>
+    </>
   );
 };
 

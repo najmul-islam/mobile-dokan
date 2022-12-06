@@ -15,8 +15,8 @@ export const mobileApi = createApi({
     }),
 
     getSingleMobile: builder.query({
-      query: (id) => ({
-        urL: `mobiles/${id}`,
+      query: (mobileslug) => ({
+        url: `mobiles/${mobileslug}`,
         method: "GET",
       }),
     }),

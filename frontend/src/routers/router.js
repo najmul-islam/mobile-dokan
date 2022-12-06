@@ -7,6 +7,7 @@ import PublicLayout from "../layouts/PublicLayout";
 import Home from "./HomeRoute";
 import Brands from "./BrandsRoute";
 import SingleBrand from "./SingleBrandRoute";
+import SingleMobile from "./SingleMobileRoute";
 import Blog from "./BlogRoute";
 
 // static page
@@ -19,7 +20,11 @@ const Router = () => {
       <Route path="/" element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/brands" element={<Brands />} />
-        <Route path="/brands/:name" element={<SingleBrand />} />
+        <Route path="/brands/:brandslug" element={<SingleBrand />} />
+        <Route
+          path="/brands/:brandslug/:mobileslug"
+          element={<SingleMobile />}
+        />
         <Route path="/blog" element={<Blog />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
       </Route>
