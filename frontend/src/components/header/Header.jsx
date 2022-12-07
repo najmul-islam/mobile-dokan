@@ -1,15 +1,17 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import NavBar from "./NavBar";
 import NavBrands from "./NavBrands";
 import BreadCrumbs from "./BreadCrumbs";
 
 const Header = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <NavBar />
       <NavBrands />
-      {/* <BreadCrumbs /> */}
+      {pathname === "/" ? null : <BreadCrumbs />}
     </>
   );
 };

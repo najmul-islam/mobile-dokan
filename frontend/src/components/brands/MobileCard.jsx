@@ -19,12 +19,13 @@ const MobileCard = ({ brand, mobile }) => {
               style={{ fontSize: "14px" }}
               className="text-center"
               as={Link}
-              to={`/brands/${brand.slug}/${mobile.slug}`}
+              to={`/${brand.slug}/${mobile.slug}`}
             >
               {mobile.name}
             </Card.Text>
 
             <Card.Text
+              className="mt-2"
               style={{ fontSize: "14px" }}
               dangerouslySetInnerHTML={{ __html: mobile.price }}
             />

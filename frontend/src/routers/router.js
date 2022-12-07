@@ -8,6 +8,7 @@ import Home from "./HomeRoute";
 import Brands from "./BrandsRoute";
 import SingleBrand from "./SingleBrandRoute";
 import SingleMobile from "./SingleMobileRoute";
+import PriceRange from "./PriceRangeRoute";
 import Blog from "./BlogRoute";
 
 // static page
@@ -20,11 +21,9 @@ const Router = () => {
       <Route path="/" element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/brands" element={<Brands />} />
-        <Route path="/brands/:brandslug" element={<SingleBrand />} />
-        <Route
-          path="/brands/:brandslug/:mobileslug"
-          element={<SingleMobile />}
-        />
+        <Route path="/:brandslug" element={<SingleBrand />} />
+        <Route path="/:brandslug/:mobileslug" element={<SingleMobile />} />
+        <Route path="/price-range" element={<PriceRange />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
       </Route>

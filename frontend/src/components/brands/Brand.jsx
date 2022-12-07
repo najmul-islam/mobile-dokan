@@ -8,7 +8,7 @@ const Brand = ({ brand }) => {
       <Card className="bg-light">
         <Card.Img variant="top" src={`/brands/${brand.logo}`} />
         <Card.Body>
-          <Card.Text as={Link} to={`/brands/${brand.slug}`}>
+          <Card.Text as={Link} to={`/${brand.slug}`}>
             {brand.name}
           </Card.Text>
         </Card.Body>
