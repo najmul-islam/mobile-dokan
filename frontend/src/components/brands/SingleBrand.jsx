@@ -31,7 +31,7 @@ const SingleBrand = () => {
           </h1>
         </Col>
       </Row>
-      <Devider width={3} />
+      <Devider width={3} color="primary" />
       {isLoading ? (
         <Row xs={3} md={4} lg={6} xl={10}>
           {new Array(skeletonNum).fill(null).map((item, i) => (

@@ -17,10 +17,12 @@ const mobileSchema = mongoose.Schema(
       type: String,
     },
     image: { type: String },
-    price: {
-      type: String,
-    },
-
+    amounts: [
+      {
+        price: { type: Number },
+        variant: { type: String },
+      },
+    ],
     first_release: {
       type: String,
     },

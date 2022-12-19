@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Card, ListGroup } from "react-bootstrap";
 
 const MobileCard = ({ brand, mobile }) => {
-  console.log(mobile.price);
+  console.log(mobile);
   // console.log("brand", brand);
   return (
     <>
@@ -24,11 +24,15 @@ const MobileCard = ({ brand, mobile }) => {
               {mobile.name}
             </Card.Text>
 
-            <Card.Text
-              className="mt-2"
-              style={{ fontSize: "14px" }}
-              dangerouslySetInnerHTML={{ __html: mobile.price }}
-            />
+            <Card.Text className="mt-2" style={{ fontSize: "14px" }}>
+              {mobile.amounts.map((amount) => (
+                <div key={amount._id}>
+                  <span className="fw-light">৳</span>
+                  <span className="fw-semibold"> {amount.price}</span>
+                  <span> {amount.variant}</span>
+                </div>
+              ))}
+            </Card.Text>
           </Card.Body>
         </Card>
       </Col>

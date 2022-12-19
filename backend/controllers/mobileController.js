@@ -6,7 +6,51 @@ const Mobile = require("../models/mobileModel");
 
 // get all Mobile
 const getAllMobile = asyncHandler(async (req, res) => {
-  const mobiles = await Mobile.find({});
+  const { price, search, sort } = req.query;
+  const queryObject = {};
+
+  if (search) {
+    queryObject.name = { $regex: search, $options: "i" };
+  }
+
+  if (price) {
+    const operatorMap = {
+      ">": "$gt",
+      ">=": "$gte",
+      "=": "$eq",
+      "<": "$lt",
+      "<=": "$lte",
+    };
+    // console.log(price);
+    const regEx = /\b(<|>|>=|=|<|<=)\b/g;
+    let filters = price.replace(regEx, (match) => `-${operatorMap[match]}-`);
+    const [value1, operator, value2] = filters.split("-");
+
+    
+    console.log(filters);
+    // filters = filters.split(",").forEach((item) => {
+    //   const [field, operator, value] = item.split("-");
+    //   if (options.includes(field)) {
+    //     queryObject.amounts[field] = { [operator]: Number(value) };
+    //   }
+    // });
+  }
+
+  let result = Mobile.find(queryObject);
+
+  // sort
+  if (sort) {
+    const sortList = sort.split(",").join(" ");
+    result = result.sort(sortList);
+  }
+
+  // pagination
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 20;
+  const skip = (page - 1) * limit;
+  result = result.skip(skip).limit(limit);
+
+  const mobiles = await result;
   res.status(200).json({ nbHits: mobiles.length, mobiles });
 });
 
