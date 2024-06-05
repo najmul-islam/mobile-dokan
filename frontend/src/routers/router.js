@@ -26,9 +26,8 @@ const Router = () => {
         <Route path="/price-range" element={<PriceRange />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/*" element={<NotFound />} />
       </Route>
-
-      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
